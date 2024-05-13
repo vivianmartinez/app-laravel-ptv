@@ -1,0 +1,12 @@
+body{
+    overflow: hidden;
+}
+
+.card-header {
+    background: #7db8ea;
+    color: white;
+}
+
+canvas{
+    background-color: white;
+}
