@@ -48,4 +48,5 @@ class LoginController extends Controller
             'dni' => 'The provided credentials don\'t match our records.',
         ])->onlyInput('user');
     }
+
 }
