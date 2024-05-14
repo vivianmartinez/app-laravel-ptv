@@ -39,6 +39,19 @@ class UserController extends Controller
     }
 
     /**
+     * Generate PDF and send by email
+     */
+
+    public function generateReportPdf(Request $request)
+    {
+        $data = [
+            'name'  => $request->input('name'),
+            'email' => $request->input('email'),
+        ];
+
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(string $id)

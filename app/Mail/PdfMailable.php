@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -13,12 +14,14 @@ class PdfMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $pdf;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($pdf)
     {
-        //
+        $this->pdf = $pdf;
     }
 
     /**
@@ -27,7 +30,8 @@ class PdfMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Pdf Mailable',
+            from: new Address('martinezpvivi@gmail.com','Vivian Martínez'),
+            subject: 'Pdf Mail App PTV'
         );
     }
 
@@ -37,7 +41,7 @@ class PdfMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.content',
         );
     }
 
@@ -49,5 +53,10 @@ class PdfMailable extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    public function build(){
+        return $this->view('user.pdf')
+                    ->attachData($this->pdf->output(), 'user_data.pdf',['mime' => 'application/pdf']);
     }
 }
