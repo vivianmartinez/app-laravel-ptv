@@ -36,9 +36,15 @@ return [
     */
 
     'guards' => [
+        /*
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        */
+        'api' => [
+            'driver' => 'custom', // Usa el nombre del driver personalizado
+            'provider' => 'customapi', // Usa el nombre del proveedor personalizado
         ],
     ],
 
@@ -60,15 +66,21 @@ return [
     */
 
     'providers' => [
+        /*
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        */
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'customapi' => [
+            'driver' => 'custom', // Nombre del driver personalizado
+            'model' => App\Http\Service\ConnectApi::class, // Modelo de usuario (puede ser cualquier clase)
+        ],
     ],
 
     /*
