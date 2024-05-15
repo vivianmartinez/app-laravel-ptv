@@ -1,21 +1,18 @@
 window.addEventListener("load",function(){
-    console.log('listo');
+
     const canvas = document.getElementById('canvas');
-    const btnClean = document.getElementById('btn-clean');
-    const btnSubmit = document.getElementById('btn-submit');
-    const imageCanvas = document.getElementById('img-canvas');
+    const btnClear = document.getElementById('btn-clear');
 
     let cdX;
     let cdY;
 
-    canvas.addEventListener('touchstart', touchDown, {passive:true});
-    canvas.addEventListener('touchend', up, {passive: true});
-    canvas.addEventListener('mousedown', touchDown);
-    canvas.addEventListener('mouseup',up);
-    btnClean.addEventListener('click', clearCanvas);
-    btnSubmit.addEventListener('click', clearCanvas);
-    btnSubmit.addEventListener('click', canvasToImage);
-
+    if(canvas !== null){
+        canvas.addEventListener('touchstart', touchDown, {passive:true});
+        canvas.addEventListener('touchend', up, {passive: true});
+        canvas.addEventListener('mousedown', touchDown);
+        canvas.addEventListener('mouseup',up);
+        btnClear.addEventListener('click', clearCanvas);
+    }
 
     const getPosTouch = (e) => {
         const touch = e.changedTouches[0];
@@ -74,10 +71,4 @@ window.addEventListener("load",function(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
     }
-    //convertir canvas a imagen
-    function canvasToImage(){
-        const canvaData = canvas.toDataURL("image/jpeg");
-        imageCanvas.src = canvaData;
-    }
-
 });

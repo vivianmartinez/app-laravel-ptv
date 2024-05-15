@@ -7,6 +7,7 @@
 
         <!-- Scripts -->
         <script src="{{asset('js/script.js')}}"></script>
+        <script src="{{asset('js/ajax.js')}}"></script>
         @vite(['resources/sass/app.scss','resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>

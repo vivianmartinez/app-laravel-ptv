@@ -9,5 +9,7 @@
 <body>
     <p>{{ $data['name'] }}</p>
     <p>{{ $data['email'] }}</p>
+    <p>Firma</p>
+    <img src="{{ route('user.sign',['filename'=>$data['filename']]) }}" alt="" width="300" height="100" />
 </body>
 </html>

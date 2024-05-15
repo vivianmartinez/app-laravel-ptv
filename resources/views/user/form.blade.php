@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Welcome') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
+                    <form id="form-user" method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method("post")
 
@@ -43,7 +43,7 @@
                             <label for="canvas" class="col-md-4 col-form-label text-md-end">{{ __('Sign here') }}</label>
                             <div class="col-md-6">
                                 <canvas id="canvas" width="400" height="200" ></canvas>
-                                <button id="btn-clean" type="button">Clean</button>
+                                <button id="btn-clear" type="button">Clear</button>
                             </div>
                         </div>
 
