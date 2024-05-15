@@ -16,13 +16,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ isset($name) ? $name : "" }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ isset($name) ? $name : "" }}"  autocomplete="name" required autofocus>
                             </div>
                         </div>
 
@@ -31,16 +25,10 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ isset($email) ? $email : ""}}" required autocomplete="current-email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="canvas" class="col-md-4 col-form-label text-md-end">{{ __('Sign here') }}</label>
+                            <span for="canvas" class="col-md-4 col-form-label text-md-end">{{ __('Sign here') }}</span>
                             <div class="col-md-6">
                                 <canvas id="canvas" width="400" height="200" ></canvas>
                                 <button id="btn-clear" type="button">Clear</button>

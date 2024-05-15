@@ -33,16 +33,12 @@ window.addEventListener('load',()=>{
                 .then(response_submit =>{
 
                     //crear elemento en el dom para mostrar un mensaje al usuario
-                    console.log(response_submit);
+                    //console.log(response_submit);
                     const message_div = document.createElement('div');
                     message_div.setAttribute('id','success');
                     const message = document.createElement('p');
 
-                    if(! response_submit.error){
-                        message.innerText = response_submit.message;
-                    }else{
-                        message.innerText = 'Ha ocurrido un error interno. Intentelo más tarde';
-                    }
+                    message.innerText = response_submit.message;
 
                     message_div.append(message);
 
@@ -58,7 +54,7 @@ window.addEventListener('load',()=>{
                 })
 
             }catch(error){
-                console.log('error');
+                console.log(error);
             }
 
         }

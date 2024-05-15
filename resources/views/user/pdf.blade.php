@@ -10,6 +10,8 @@
     <p>{{ $data['name'] }}</p>
     <p>{{ $data['email'] }}</p>
     <p>Firma</p>
-    <img src="{{ route('user.sign',['filename'=>$data['filename']]) }}" alt="" width="300" height="100" />
+    <!-- descomentar si se usa la ruta del archivo en disco -->
+    <!-- <img src="{{-- route('user.sign',['filename'=>$data['filename']]) --}}" alt="" width="300" height="150" /> -->
+    <img src="{{ $data['filename'] }}" alt="" width="300" height="150" />
 </body>
 </html>

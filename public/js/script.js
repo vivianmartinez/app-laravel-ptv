@@ -7,8 +7,8 @@ window.addEventListener("load",function(){
     let cdY;
 
     if(canvas !== null){
-        canvas.addEventListener('touchstart', touchDown, {passive:true});
-        canvas.addEventListener('touchend', up, {passive: true});
+        canvas.addEventListener('touchstart', touchDown, false);
+        canvas.addEventListener('touchend', up, false);
         canvas.addEventListener('mousedown', touchDown);
         canvas.addEventListener('mouseup',up);
         btnClear.addEventListener('click', clearCanvas);
@@ -48,6 +48,7 @@ window.addEventListener("load",function(){
             canvas.addEventListener('touchmove', touchMove, {passive: true});
         else
             canvas.addEventListener('mousemove', touchMove, {passive: true});
+
     }
 
     function touchMove(e) {
