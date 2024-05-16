@@ -35,11 +35,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //hacer un validator personalizado
-        $name = $request->input('name');
+
+        $name = ucwords(strtolower($request->input('name')));
         $email = $request->input('email');
-        if($name == '' || $email == ''){
-            $response = ['error'=>true, 'message' => 'Datos inválidos. Asegúrese de rellenar todos los campos.'];
+
+        //validar no existente
+        $search_email = User::where('email', $email)->first();
+
+        if($search_email != null){
+            $response = ['error'=>false, 'message' => 'El usuario ya ha sido registrado'];
             return new Response(json_encode($response),200);
         }
 
@@ -47,7 +51,9 @@ class UserController extends Controller
         $user = User::create([
             'name' => $name,
             'email' => $email,
-            'password' => $email // le coloco el email de manera provisional
+            'password' => $email, // le coloco el email de manera provisional
+            'dni' => $request->input('dni'),
+            'code_user' => $request->input('code_user')
         ]);
 
         //descomentar si queremos guardar el archivo de la firma usando el provider para subirlo y obtener el nombre
@@ -57,8 +63,8 @@ class UserController extends Controller
         $name_path = $request->input('dataurl_canvas');
 
         $data = [
-            'name'      => $request->input('name'),
-            'email'     => $request->input('email'),
+            'name'      => $name,
+            'email'     => $email,
             'filename'  => $name_path
         ];
 
@@ -67,9 +73,9 @@ class UserController extends Controller
 
         //Generamos el PDF y lo enviamos por correo
         $pdf = Pdf::loadHTML($html);
-        Mail::to('martinezpvivi@gmail.com')->send(new PdfMailable($pdf));
+        Mail::to($data['email'])->send(new PdfMailable($pdf,$data));
 
-        //retornamos una respuesta a la llamada
+        //retornamos una respuesta a la llamada  Ajax
         $response = ['error'=>false, 'message' => 'La información se ha enviado con éxito.'];
         return new Response(json_encode($response),200);
     }

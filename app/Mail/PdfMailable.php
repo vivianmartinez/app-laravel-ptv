@@ -15,13 +15,15 @@ class PdfMailable extends Mailable
     use Queueable, SerializesModels;
 
     private $pdf;
+    private $data;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($pdf)
+    public function __construct($pdf,$data)
     {
         $this->pdf = $pdf;
+        $this->data = $data;
     }
 
     /**
@@ -57,6 +59,7 @@ class PdfMailable extends Mailable
 
     public function build(){
         return $this->view('user.pdf')
+                    ->with('data',$this->data)
                     ->attachData($this->pdf->output(), 'user_data.pdf',['mime' => 'application/pdf']);
     }
 }

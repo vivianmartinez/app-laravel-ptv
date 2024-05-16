@@ -24,6 +24,7 @@ class LoginController extends Controller
      */
 
      public function handle(Request $request){
+
         //validar datos requeridos
         $request->validate([
             'user' => ['required'],
@@ -39,13 +40,15 @@ class LoginController extends Controller
         if($data !== null){
             return view('user.form', Array(
                 'name' => trim($data['Nombre']),
-                'email'=> trim($data['Email'])
+                'email'=> trim($data['Email']),
+                'code' => $request->input('user'),
+                'dni'  => $request->input('dni')
             ));
         }
 
         //si ocurre un error con los datos ingresados probablemente estén errados
         return back()->withErrors([
-            'dni' => 'The provided credentials don\'t match our records.',
+            'dni' => 'Credenciales no validas.',
         ])->onlyInput('user');
     }
 

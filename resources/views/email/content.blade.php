@@ -8,5 +8,7 @@
 </head>
 <body>
     <!-- Cuerpo del correo electrónico -->
+    <h3>Hola {{ $data['name'] }}</h3>
+    <p>Te enviamos tus datos.</p>
 </body>
 </html>

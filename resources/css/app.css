@@ -10,3 +10,11 @@ body{
 canvas{
     background-color: white;
 }
+.message-error{
+    color: rgb(205, 121, 121);
+    font-weight: bold;
+}
+.message-success{
+    color: rgb(81, 189, 236);
+    font-weight: bold;
+}
