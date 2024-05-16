@@ -33,7 +33,7 @@ class LoginController extends Controller
         //generamos el endpoint con los datos recibidos
         $format_endpoint = '/%s/%s';
         $endpoint = sprintf($format_endpoint,$request->input('user'),$request->input('dni'));
-
+        //consultamos
         $data = ConnectApi::retrieveUser($endpoint);
 
         //enviamos a la vista del formulario los datos que vienen de la llamada
@@ -51,5 +51,4 @@ class LoginController extends Controller
             'dni' => 'Credenciales no validas.',
         ])->onlyInput('user');
     }
-
 }

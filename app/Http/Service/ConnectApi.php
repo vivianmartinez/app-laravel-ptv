@@ -9,9 +9,7 @@ class ConnectApi{
 
     public static function retrieveUser($endpoint)
     {
-        // Lógica para recuperar el usuario por ID desde tu fuente de datos
-        // (por ejemplo, una API externa o una base de datos no convencional).
-        //usamos la url fija de la llamada a la API
+        //usamos la url fija de la llamada a la API (variable de entorno) y recuperar el usuario
         $url = env('URL_API');
 
         //hacemos la llamada y si falla nos redirige a la página de login
@@ -26,6 +24,5 @@ class ConnectApi{
         }catch(HttpResponseException $e){
             return null;
         }
-
     }
 }
