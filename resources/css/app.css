@@ -1,3 +1,5 @@
+@import  "@fortawesome/fontawesome-free/css/all.css";
+
 body{
     overflow: hidden;
 }
@@ -6,9 +8,19 @@ body{
     background: #7db8ea;
     color: white;
 }
-
+.btn-custom {
+    color: white;
+    font-weight: bold;
+    background: #7db8ea;
+}
+.btn-custom:hover{
+    background: #618fb7;
+    color: white;
+}
 canvas{
     background-color: white;
+    border: solid 1px #dee2e6;
+    border-radius: 3%;
 }
 .message-error{
     color: rgb(205, 121, 121);

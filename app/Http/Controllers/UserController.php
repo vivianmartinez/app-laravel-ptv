@@ -39,7 +39,7 @@ class UserController extends Controller
         $name = ucwords(strtolower($request->input('name')));
         $email = $request->input('email');
 
-        //validar no existente
+        //validar no existente - se puede crear un validador personalizado
         $search_email = User::where('email', $email)->first();
 
         if($search_email != null){

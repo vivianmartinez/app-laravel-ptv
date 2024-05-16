@@ -65,7 +65,7 @@ window.addEventListener("load",function(){
         canvas.removeEventListener('touchmove',touchMove);
         canvas.removeEventListener('mousemove',touchMove);
     }
-    //botón limpiar canvas
+    //limpiar canvas
     function clearCanvas(){
         if(canvas.getContext){
             const ctx = canvas.getContext('2d');

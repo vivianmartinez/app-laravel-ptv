@@ -13,7 +13,7 @@
                         @method("post")
 
                         <div class="row mb-3">
-                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('User') }}</label>
+                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('Usuario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
@@ -42,7 +42,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-info">
+                                <button type="submit" class="btn btn-info btn-custom">
                                     {{ __('Login') }}
                                 </button>
                             </div>

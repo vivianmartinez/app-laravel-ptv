@@ -13,7 +13,7 @@
                         @method("post")
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ isset($name) ? $name : "" }}"  autocomplete="name"  autofocus>
@@ -28,18 +28,18 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <span for="canvas" class="col-md-4 col-form-label text-md-end">{{ __('Sign here') }}</span>
+                            <span for="canvas" class="col-md-4 col-form-label text-md-end">{{ __('Firme aquí') }}</span>
                             <div id="sign-canvas" class="col-md-6">
-                                <canvas id="canvas" width="400" height="200" ></canvas>
+                                <canvas id="canvas" width="290" height="200" ></canvas>
                                 <div id="canvas-clear">
-                                    <button id="btn-clear" type="button">Clear</button>
+                                    <button id="btn-clear" type="button" class="btn btn-light" data-toogle="tooltip" data-placement="top" title="borrar firma"><i class="fa-solid fa-eraser"></i></button>
                                 </div>
                             </div>
                         </div>
                         <input data-code="{{isset($code) ? $code : ""}}" data-dni="{{ isset($dni) ? $dni : "" }}" name="data-user" id="data-user" hidden>
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button id="btn-submit" type="submit" class="btn btn-info">
+                                <button id="btn-submit" type="submit" class="btn btn-info btn-custom">
                                     {{ __('Submit') }}
                                 </button>
                                 <div id="message-form" class="mt-1"></div>
