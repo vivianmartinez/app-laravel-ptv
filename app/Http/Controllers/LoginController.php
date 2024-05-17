@@ -37,6 +37,9 @@ class LoginController extends Controller
         $data = ConnectApi::retrieveUser($endpoint);
 
         //enviamos a la vista del formulario los datos que vienen de la llamada
+        if($data == 'timeout'){
+            return redirect('/')->with('status','Ha ocurrido un error de conexión. Inténtelo más tarde.');
+        }
         if($data !== null){
             return view('user.form', Array(
                 'name' => trim($data['Nombre']),

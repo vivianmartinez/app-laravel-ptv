@@ -2,6 +2,7 @@
 
 namespace App\Http\Service;
 
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Http;
 
@@ -21,6 +22,8 @@ class ConnectApi{
                 $data = json_decode($json,true)['Registro']['@attributes'];
                 return $data;
             }
+        }catch(ConnectionException $ec){
+            return 'timeout';
         }catch(HttpResponseException $e){
             return null;
         }

@@ -47,6 +47,11 @@
                                 </button>
                             </div>
                         </div>
+                        @if (session('status'))
+                            <p class="mt-2 font-medium text-sm message-error">
+                                {{ __(session('status')) }}
+                            </p>
+                        @endif
                     </form>
                 </div>
             </div>
